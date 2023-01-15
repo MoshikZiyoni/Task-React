@@ -18,10 +18,10 @@ function App() {
     useEffect(() => {
         // promise
         // async await
-        fetch("http://localhost:5000/tasks")
+        fetch("http://127.0.0.1:8000/property/api/")
             .then((response) => response.json())
             .then((data) => {
-                // console.log(data)
+                console.log(data)
                 setTasks(data)
             });
         console.log('use effect called!')
@@ -57,13 +57,7 @@ function App() {
             reminder: reminder
 
         }
-        fetch('http://localhost:5000/tasks', {
-            method: 'POST',
-            headers: {
-                'Content-Type': 'application/json'
-            },
-            body: JSON.stringify(task)
-        });
+        axios.post(`http://127.0.0.1:8000/property/api/`)
 
         setTasks([...tasks, task])
 
